@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
+import 'package:recommend/SelectButton.dart';
 
 class SelectionScreen extends StatelessWidget {
   @override
@@ -25,46 +27,93 @@ class SelectionScreen extends StatelessWidget {
         ),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
-          child: Center(
-            child: Container(
-              height: 350.0,
-              width: 350.0,
-              child: RaisedButton(
-//                color: Color(0xff240401).withOpacity(0.7),
-//                color: Colors.black.withOpacity(0.6),
-                color: Color(0xff180201).withOpacity(0.8),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(55.0)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      '🍿',
-                      style: TextStyle(
-                        fontSize: 150.0,
+            child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.fromLTRB(15.0, 40.0, 15.0, 15.0),
+                      child: SelectButton(
+                        category: 'MOVIES',
+                        emoticon: '🍿',
+                        backgroundColor: kMoviesBackgroundColor,
+                        textColor: kMoviesTextColor,
                       ),
                     ),
-                    SizedBox(
-                      height: 25.0,
-                    ),
-                    Text(
-                      'MOVIES',
-                      style: TextStyle(
-                        fontSize: 60.0,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff9A2812),
+                  ),
+//                    SizedBox(
+//                      width: 15.0,
+//                    ),
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.fromLTRB(15.0, 40.0, 15.0, 15.0),
+                      child: SelectButton(
+                        category: 'TV SHOWS',
+                        emoticon: '📺',
+                        backgroundColor: kTVshowsBackgroundColor,
+                        textColor: kTVshowsTextColor,
                       ),
                     ),
-                  ],
-                ),
-                onPressed: () {
-                  print('Pressed');
-                },
+                  ),
+                ],
               ),
             ),
-          ),
-        ),
+//              SizedBox(
+//                height: 15.0,
+//              ),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 40.0),
+                      child: SelectButton(
+                          category: 'BOOKS',
+                          emoticon: '📚',
+//
+                          backgroundColor: kBooksBackgroundColor,
+                          textColor: kBooksTextColor),
+                    ),
+                  ),
+//                    SizedBox(
+//                      width: 15.0,
+//                    ),
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 40.0),
+                      child: SelectButton(
+                        category: 'GAMES',
+                        emoticon: '🎲',
+                        backgroundColor: kGamesBackgroundColor,
+                        textColor: kGamesTextColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        )),
       ),
     );
   }
 }
+
+//'🍿'
+//Color(0xff180201) background
+//Color(0xff9A2812) textColor
+//                color: Color(0xff240401).withOpacity(0.7),
+//                color: Colors.black.withOpacity(0.6),
+//Center(
+//child: Container(
+//height: 350.0,
+//width: 350.0,
+//child: selectButton(),
+//),
+//),
